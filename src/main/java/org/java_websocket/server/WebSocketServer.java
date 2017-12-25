@@ -254,7 +254,7 @@ public abstract class WebSocketServer extends AbstractWebSocket implements Runna
 
 		synchronized ( this ) {
 			if( selectorthread != null  ) {
-				selector.wakeup();
+				if(selector != null) selector.wakeup();
 				selectorthread.join( timeout );
 			}
 		}
